@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true  
+  tasks:
+    - name: Run 'apt-get update && apt-get -y dist-upgrade'
+      apt:
+        upgrade: dist
+        update_cache: yes
+      become: yes 
+
+    - name: install apache2 package  
+      apt:
+        name: apache2
